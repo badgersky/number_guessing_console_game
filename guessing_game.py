@@ -8,31 +8,21 @@ def game_loop():
     tries = 1
     while True:
         try:
-            guess = get_input()
-            if tries == available_tries:
+            guess = int(input('Enter your guess: '))
+            if tries > available_tries:
                 return f'You are out of tries, The number was {number}.'
-            else:
-                result = check_guess(guess, number)
-                if result:
-                    return f'You win!'
+            elif check_guess(guess, number):
+                return f'You win!'
             tries += 1
         except ValueError:
-            msg = f'Enter an integer!'
-            print(msg)
-
-
-def get_input():
-    guess = int(input('Enter your guess: '))
-    return guess
+            print(f'Enter an integer!')
 
 
 def check_guess(guess, number):
     if guess < number:
-        msg = f'To small, try again.'
-        print(msg)
+        print(f'To small, try again.')
     elif guess > number:
-        msg = f'To big, try again.'
-        print(msg)
+        print(f'To big, try again.')
     else:
         return True
 
