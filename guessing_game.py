@@ -19,6 +19,7 @@ def game_loop():
 
 
 def check_guess(guess, number):
+    """function checks if number is equal to players guess"""
     if guess < number:
         print(f'To small, try again.')
     elif guess > number:
